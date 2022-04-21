@@ -1,0 +1,248 @@
+* {
+    /* margin: auto; */
+}
+body{
+    /* background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%), 
+    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%); //rainbow background */
+    
+}
+
+.horn {
+    transform: skewY(40deg);
+    margin-bottom: -50px;
+    width: 50px;
+    margin: 50px auto -150px auto;
+    
+}
+.horn > div {
+    border-radius: 100% 0% 100% 0% / 64% 30% 70% 36%;
+    margin-bottom: -10px;
+    transform: scale(1.5, 2);
+    border: solid 2px pink;
+}
+.horn1{
+    background-color: thistle;
+    width: 15px;
+    height: 30px;
+    
+}
+
+.horn2{
+    background-color: pink;
+    width: 25px;
+    height: 30px;
+}
+
+.horn3{
+    background-color: powderblue;
+    width: 35px;
+    height: 40px;
+  
+}
+
+.horn4{
+    background-color: gold;
+    width: 45px;
+    height: 50px;
+  
+}
+
+.horn5{
+    background-color: plum;
+    width: 50px;
+    height: 50px;
+ 
+}
+
+.ears{
+    margin: 0 auto -40px auto;
+    display:flex;
+    justify-content: space-between;
+    width: 400px;
+  
+}
+.ear_left, .ear_right {
+    width: 80px;
+    height: 80px;
+    background-color: snow;
+    border: solid 20px pink;
+    
+}
+.ear_left{
+    border-radius: 50px 50px 50px 10px ;
+    transform: rotate(110deg);
+    margin-left: -10px;
+}
+.ear_right{
+    border-radius: 50px 50px 50px 10px ;
+    transform: rotate(160deg);
+    margin-right: -10px;
+    /* border-radius: 50px 50px 0 0 ; */
+  
+}
+
+
+.head {
+    margin: auto;
+    width: 400px;
+    height: 100px;
+    background-color: pink;
+    /* border:  1px solid rgb(197, 147, 155); */
+    border-bottom: 0px;
+   
+}
+
+.eyes{
+    background-color: pink;
+    border-top: 0px;
+    height: 100px;
+    width: 400px;
+    margin: auto;
+    display:flex;
+    justify-content: space-around;
+    margin-top: -20px;
+   
+}
+
+.eye_left, .eye_right{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 58% 42% 100% 0% / 63% 1% 99% 37%;
+    background-color: snow;
+}
+
+.eye_left{
+    transform: rotate(70deg);
+    border-left: solid 10px black;
+    
+}
+
+.eye_right{
+    transform: rotate(21deg);
+    border-top: solid 10px black;
+  
+}
+
+.eyeball_left, .eyeball_right{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    width: 65px;
+    height: 65px;
+    background-color:black;
+    border-bottom: solid 9px plum;
+    border-right: solid 9px plum;
+    padding: 4.5px;
+    border-radius: 50%;
+
+}
+
+
+
+
+
+
+
+.body {
+   
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    background-color: pink;
+    border-radius: 0 0 5% 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.calc {
+    width: 300px;
+    background-color: plum;
+    border: solid 8px #edb1bcb8;
+    border-top: solid 5px #c2979fb8;
+    border-bottom: solid 5px #e4a0adb8;
+    box-shadow: inset 2px 2px 20px rgb(166 128 166);
+}
+
+.screen{
+    height: 80px;
+    background:linear-gradient(45deg, rgba(181,185,182,1) 0%, rgb(196, 201, 198) 43%, rgba(165,171,167,1) 100%);
+    margin: 10px 10px;
+    border-radius: 5px;
+    border-top: 2px solid rgb(109, 110, 109);
+    border-left: 1px solid rgb(134, 138, 135);
+    border-bottom: 1px solid rgb(134, 138, 135);
+    border-right: 1px solid rgb(134, 138, 135);
+    box-shadow: inset 2px 2px 20px rgb(109, 110, 109);
+    outline: solid 4px rgba(201, 144, 201, 0.938);
+    font-size: 2rem;
+    font-family: 'Press Start 2P', monospace;
+
+
+    color:rgb(81, 82, 81);
+    padding: 10px 10px 0px 5px;
+    box-sizing: border-box;
+    text-align: end;
+}
+
+.div-btns{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.btn-num, .btn-op, .btn-control{
+    width: 50px;
+    height: 50px;
+    background: rgb(255, 182, 255);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    line-height: 0.5;
+    border-radius: 3px;
+    border: solid 2px rgb(184, 133, 184);
+    box-shadow: 2px 2px 2px rgb(184, 133, 184), inset 3px 3px 10px rgb(252, 210, 252);
+}
+
+.btn-control{
+    font-size: .9rem;    
+    border-radius: 50%;
+    height: 5px;
+    line-height: 0.4;
+    width:auto;
+    margin: 0px 5px;
+}
+
+/* .clicked { 
+    background: rgb(184, 133, 184);
+    box-shadow:inset 3px 3px 10px rgb(156, 129, 156);
+    color:rgb(255, 182, 255);
+    color: red;
+} */
+
+/* .shape {
+    border-radius: 44% 56% 51% 49% / 47% 98% 2% 53%;
+    background-color: orange;
+    border: solid 10px pink;
+    height: 100px;
+    width: 100px;
+    transform: rotate(200deg);
+}
+
+.shape2{
+    border-radius:63% 30% 94% 14% / 64% 9% 80% 29%;
+    background-color: white;
+    border: solid 10px pink;
+    height: 100px;
+    width: 100px;
+    transform: rotate(35deg);
+} */
