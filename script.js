@@ -2,95 +2,216 @@
 
 const divBtns = document.querySelector(".div-btns");
 const screen = document.querySelector(".screen");
-const btnOnc = document.querySelector("#btn-onc");
-const btnCE = document.querySelector("#btn-CE");
+const controlBtns = document.querySelectorAll(".btn-control");
+
+const btnEquals = document.querySelector ("#op-equals");
+const btnDecimal = document.querySelector("#num-decimal");
 
 
-// let equation = [];
+
 let firstNum = "";
 let secondNum = "";
 let operator = "";
 
+
 divBtns.addEventListener("click", (e)=>{
+    btnDecimal.disabled = false;
+    if(e.target.classList.contains('btn-control')) { //CONTROL BTNS
+            switch (e.target.id){
+            case "btn-CE": 
+                clearEntry();
+                break;
+            case "btn-git": 
+                const link = document.createElement("a");
+                    link.setAttribute('href', 'http://github.com/Peaches-xo/calculator');
+                    link.textContent = 'github.com/Peaches-xo/calculator';
+                    screen.appendChild(link);
+                    setTimeout(function(){
+                        screen.textContent = "";
+                    }, 2500);
+               break;
+            case "btn-onc": 
+                screen.textContent = "✨🦄 giddy up 🦄 ✨";
+                firstNum = "";
+                secondNum = "";
+                operator = "";
+                break;
+            case "btn-star":
+                const jsConfetti = new JSConfetti();
+                jsConfetti.addConfetti({
+                    emojis: ['🌈', '⚡️', '🦄', '💥', '✨', '💫', '🌸'],
+                    emojiSize: 50,
+                    confettiNumber: 100,
+                });
+                break;
+            };
 
-    if (e.target == btnOnc){ //Clicked ON/C button
-        screen.textContent = "";
-        firstNum = "";
-        secondNum = "";
-        operator = "";
-    }
+    } else if(e.target.classList.contains('btn-num')) { // NUM BTNS
+        if (screen.textContent == "✨🦄 giddy up 🦄 ✨") screen.textContent = "";
 
-    if (e.target == btnCE){
-        screen.textContent = "";
-        //clear number from whichever num var (either 1 or 2)
-    }
-
+        if (operator == "="){
+            firstNum = "";
+            secondNum = "";
+            operator = "";
+            screen.textContent = "";
+        }
     
-    if (e.target.classList.contains('btn-num')) { //if NUMBER btn is clicked
-        
-        screen.textContent += e.target.textContent; //display the clicked number on screen
-        firstNum += e.target.textContent; //add to firstNum variable until number is finished being entered
-        console.log ("firstNum: "+ firstNum);
+        if (secondNum == "" && operator == ""){
+            if (firstNum.includes(".")){
+                btnDecimal.disabled = true;
+            };
+            screen.textContent += e.target.textContent; //display clicked number on screen
+            firstNum += e.target.textContent; //add to firstNum until number is finished being entered
+            console.log ("firstNum: "+ firstNum);
+        }
 
-        // addToEquation(e.target.textContent);
-    
-       
- } else if(e.target.classList.contains('btn-op')){ //if OPERAND is clicked
-        
-        operator = e.target.textContent; //put into operator variable
-        console.log("operator: " + operator);
-        
-        e.target.classList.toggle('.clicked'); //change style of clicked button 
+         if (firstNum !=="" && operator !==""){
+             btnDecimal.disabled = false;
+             if (secondNum.includes(".")){
+                btnDecimal.disabled = true;
+            };
+             //add number to secondNum
+            secondNum += e.target.textContent;
+             screen.textContent = `${firstNum} ${operator} ${secondNum}`;
+             console.log ("secondNum: " + secondNum);
+         };
 
-        // screen.textContent = e.target.textContent; //add operand to screen.        
- }
+    } else if(e.target.classList.contains('btn-op')) { //OP BTNS
+      
+        if (firstNum !== "" && secondNum == ""){
+            operator = e.target.textContent;
+            screen.textContent = `${firstNum} ${operator} `;
+        }
+        
+        if (firstNum !== "" && secondNum !== ""){
+            operate(firstNum, secondNum, operator);
+            operator = e.target.textContent; 
+        };
+
+    }  else if (e.target == btnEquals){
+        operate(firstNum,secondNum,operator);
+        operator = "="; 
+     
+    }
 });
-
-function addToEquation(number){
-    
-    // equation[0] = Number(number);
-    // console.log("value at equation[0] is: " + equation[0]);
-    
-}
-
-
 
 // CONSOLE FUNCTIONS
 
-function add (a, b){
-    console.log (a + b);
-    // return a + b;
+function add(a,b){
+    let result = +(a) + +(b);
+    firstNum = result; 
+    secondNum = "";
+
+    if (result >= Number.MAX_VALUE) {
+        return 'error - num too large';
+    };
+
+    if (result.toString().includes(".")){
+        return result.toFixed(2);
+    } else {
+        return result;
+    }
 };  
 
 function subtract (a,b){
-    console.log (a - b);
-    // return a - b;
+    let result = +(a) - +(b);
+    firstNum = result; 
+    secondNum = "";
+
+    if (result >= Number.MAX_VALUE) {
+        return 'error - num too large';
+    };
+
+    if (result.toString().includes(".")){
+        return result.toFixed(2);
+    } else {
+        return result;
+    };
 };
 
 function multiply (a, b){
-    console.log (a * b);
-    // return a * b;
+    let result = +(a) * +(b);
+    firstNum = result; 
+    secondNum = "";
+
+   if (result >= Number.MAX_VALUE) {
+        return 'error - num too large';
+    };
+
+    if (result.toString().includes(".")){
+        return result.toFixed(2);
+    } else {
+        return result;
+    }
 };  
 
 function divide (a,b){
-    console.log (a / b);
-    // return a / b;
+    let result = +(a) / +(b);
+    firstNum = result; 
+    secondNum = "";
+
+    if (result >= Number.MAX_VALUE) {
+        return 'error - num too large';
+    };
+
+    if (result.toString().includes(".")){
+        return result.toFixed(2);
+    } else {
+        return result;
+    };
 };
 
-
-function operate (num1,num2,operand){
-    if (operand == "+"){
-        add(num1,num2);
-    } else if (operand == "-"){
-        subtract(num1,num2);
-    } else if (operand == "*"){
-        multiply(num1, num2);
-    } else if (operand == "/"){
-        divide (num1,num2);
+function operate(num1,num2,operator){
+    if (operator == "+"){
+        screen.textContent = add(num1,num2);
+    } else if (operator == "-"){
+        screen.textContent = subtract(num1,num2);
+    } else if (operator == "x"){
+        screen.textContent = multiply(num1, num2);
+    } else if (operator == "÷"){
+        if (num2 == 0){
+            screen.textContent = "you have summoned... UNICORN MAN";
+          
+            setTimeout(function(){
+                screen.textContent = "";
+                firstNum = "";
+                operator = "";
+                secondNum = "";
+                showImg();
+            }, 1000);
+            
+        } else {
+        screen.textContent = divide (num1,num2);
+        }
     }
 };
 
-// operate(100,20,"/");
+function clearEntry(){
+    if (firstNum !== "" && secondNum !== ""){ //clear 2nd num
+        secondNum = "";
+        screen.textContent = `${firstNum} ${operator}`;
+    } else if (firstNum !== "" && operator == "=" && secondNum == ""){ //clear result after =
+            screen.textContent = "";
+            firstNum = "";
+            operator = "";
+    } else if (firstNum !== "" && operator !== "" && secondNum == ""){ //clear operator
+        operator = "";
+        screen.textContent = `${firstNum}`;
+    } else if (firstNum !== "" && operator == "" && secondNum == ""){ //clear 1st num
+        firstNum = "";
+        screen.textContent = "";
+    } 
+};
+
+function showImg(){
+    document.getElementById('unicornCard').style.display = "block";
+
+    setTimeout(function(){
+        document.getElementById('unicornCard').style.display = "none";
+    }, 3000);
+};
+
+
 
 
 

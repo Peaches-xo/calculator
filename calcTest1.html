@@ -11,16 +11,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.8.0/dist/js-confetti.browser.js"></script>
   
 
     <title>Calculator</title>
 </head>
 <body>
-
-    
-
-
-
+ 
+    <img id="unicornCard" src=
+    "/unicornmancard.jpg"
+                alt="unicorn man card image" />
+   
     <div class='horn'>
         <div class='horn1'></div>
         <div class='horn2'></div>
@@ -29,22 +30,21 @@
         <div class='horn5'></div>
     </div>
 
-    
     <div class='ears'>
         <div class='ear_left'></div>
         <div class='ear_right'></div>
     </div>
-    
-    <div class='head'></div>
-        <div class='eyes'>
+
+    <div class='body'>
+
+         <div class='eyes'>
             <div class='eye_left'>
                 <div class='eyeball_left'>• ✦ </div>
             </div>
             <div class='eye_right'>
                 <div class='eyeball_right'>• ✦</div></div>
-                <!-- • -->
-        </div>
-    <div class='body'>
+            </div> 
+
         <div class='calc'>
             <div class="screen"></div>
 
@@ -52,11 +52,8 @@
 
                 <button class="btn-control" id="btn-onc">ON/C</button>
                 <button class="btn-control" id="btn-CE">CE</button>
-                <button class="btn-control" id="btn-mrc">MRC</button>
-
-                <button class="btn-control" id="btn-mminus">M-</button>
-
-
+                <button class="btn-control" id="btn-git">GIT</button>
+                <button class="btn-control" id="btn-star">✦</button>
 
                 <button class="btn-num" id="num-7">7</button>
                 <button class="btn-num" id="num-8">8</button>
@@ -78,23 +75,16 @@
 
                 <button class="btn-num" id="num-0">0</button>
                 <button class="btn-num" id="num-decimal">.</button>
-                <button class="btn-op" id="op-equals">=</button>
+                <button id="op-equals">=</button>
 
                 <button class="btn-op" id="op-plus">+</button>
             </div>
-
-
-
-
         </div>
     </div>
 
  
 
-
-    
-<!-- <div class='shape'></div>
-<div class='shape2'></div> -->
 <script src="/script.js"></script>
+
 </body>
 </html>
