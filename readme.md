@@ -3,6 +3,7 @@
 ---
 
 ![unicorn calculator](/Screen%20Shot%20as%20at%2028%20April%202022.png)
+![original unicorn calculator](/originalCalculator.jpg)
 
 ### **Goals** 
 Create a functional calculator using HTML, CSS & Javascript. 
