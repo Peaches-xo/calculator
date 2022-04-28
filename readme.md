@@ -97,3 +97,7 @@ User presses number after operator:
     - transform: skewX(30deg) - for horn, border radius top right and btm left corners
     or
     
+ ### ISSUES TO ADDRESS
+ - can input multiple decimal points in a row and get NaN as a result   
+    SOLVED: added "startsWith(".") to check for decimal in each number. 
+ - can have multiple leading 0's in a row
