@@ -2,6 +2,8 @@
 ## The Odin Project // Calculator app
 ---
 
+https://peaches-xo.github.io/calculator/
+
 ![unicorn calculator](/Screen%20Shot%20as%20at%2028%20April%202022.png)
 ![original unicorn calculator](/originalCalculator.jpg)
 
@@ -31,7 +33,7 @@ There was also a struggle with trying to get the confetti effect to work as it w
 * * * 
 
 ## Pseudo for calculator
-
+https://peaches-xo.github.io/calculator/
 User presses number: 
 
     check if num1 is empty, if so
